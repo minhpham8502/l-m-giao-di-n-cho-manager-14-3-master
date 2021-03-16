@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+  <a href="/course/allcourse" class="navbar-brand" >Khóa học</a>
+    <a href="/course/create" class="navbar-brand" > Create Faculity </a>
+    <a href="/student/addStudent" class="navbar-brand" >Create student</a>
+    <a href="/teacher/addTeacher" class="navbar-brand" >Create Teacher</a>
+    <a href="" class="navbar-brand" >Set time</a>
+    <a href="" class="w3-bar-item w3-button">Logout</a>
+    
+   <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>username</th>
+        <th>password</th>
+        <th>Action</th>
+        <th></th>
+      </tr>
+    </thead>
+
+      <tbody>
+        {{#each account}}  
+          <tr>
+            <td>{{username}}</td>
+            <td>{{email}}</td>
+            <td><a href="/student/delete{{_id}}">Delete</a></td>
+            <td><a href="/student/update{{_id}}">Update</a></td>
+          </tr>
+        {{/each}}
+      </tbody>
+  </table>
+</body>
+</html>

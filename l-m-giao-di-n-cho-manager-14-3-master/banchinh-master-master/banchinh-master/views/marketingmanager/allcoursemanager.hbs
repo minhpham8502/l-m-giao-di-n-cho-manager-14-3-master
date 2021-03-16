@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <nav class="navbar navbar-light bg-dark">
+        <div class="container-fluid">
+    <a href="/account/indexManager" class="navbar-brand" >Home</a>
+    <a href="/manage/allfaculity" class="navbar-brand" >View contributions</a>
+    <a href="/manage/allcoursemanager" class="navbar-brand" >Dowload contributions</a>
+    <a href="/" class="navbar-brand" >Set time for upload file managine</a>
+    <a href="" class="w3-bar-item w3-button">Logout</a>
+        <form class="d-flex" method="post" action="./course/search">
+            <input class="form-control me-2" placeholder="Search" aria-label="Search" name="coursename">
+            <button class="btn btn-outline-success" type="submit" value="Search Course">Search</button>
+        </form>
+        </div>
+    </nav>
+
+            {{#each course}}
+            <tr>
+                <th>
+                    <a href="/course/{{slug}}">as</a>
+                </th>
+                <td>
+                    <h5 class="card-title">{{coursename}}</h5>            
+                </td>
+                <td>
+                    <p class="card-text">Mô tả:{{topic}}</p>
+                </td>
+            </tr>
+            
+
+                        <a href="/file/lol{{slug}}" class="btn btn-primary">xem bài đăng của khoa này</a>
+
+
+            {{/each}}
+        </div>
+    </div>
+
+
+</body>
+</html>

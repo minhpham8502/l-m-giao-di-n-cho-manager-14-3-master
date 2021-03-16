@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   
+<!-- Downloaded chart.css -->
+<link rel="stylesheet" href="chart.css">
+
+<!-- RawGit CDN chart.css -->
+<link rel="stylesheet" href="https://cdn.rawgit.com/theus/chart.css/v1.0.0/dist/chart.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+<script
+  src="https://code.jquery.com/jquery-3.6.0.js"
+  integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+  crossorigin="anonymous"></script>
+
+</head>
+<body>
+    <div style="border: 2px solid black; width: 500px; height : 300px " >
+        <h2 style="margin-left: 15px ;">Số bài viết đã được duyệt</h2>
+        <div class="charts" style="width: 300px; height :300px; padding: 10px" >
+                <span style="font-weight: 30px; font-size : 15px; margin: 10px; " >members of course</span>
+            <div class="charts__chart chart--p{{account}} chart--default" style="padding : 5px; margin :10px ", >
+                <p style="text-align: center;">{{account}}</p>
+            </div>
+
+                <span style="font-weight: 40px; font-size : 15px; margin: 10px; "> Số bài đã Pass</span>
+            <div class="charts__chart chart--p{{account1}} chart--blue" style="padding : 5px; margin :10px "></div>
+        </div>
+    </div>
+
+    
+    {{!-- <canvas id="pie-chart" width="800" height="450"></canvas>
+    <script>
+       
+        new Chart(document.getElementById("pie-chart"), {
+    type: 'pie',
+    data: {
+      labels: ["Châu Phi", "Châu Á", "Châu Âu", "Châu Mỹ Latin", "Bắc Mỹ"],
+      datasets: [{
+        label: "đơn vị (triệu người)",
+        backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
+        data: [$(document).ready(function(){
+            $(#1).html("50")
+            $(#2).html("60")
+
+
+        })]
+      }]
+    },
+    options: {
+      title: {
+        display: true,
+        text: 'Biểu đồ tỷ lệ dân số thế giới'
+      }
+    }
+});
+
+    </script> --}}
+
+</body>
+</html>

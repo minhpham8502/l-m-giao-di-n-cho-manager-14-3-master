@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html>
+<body>
+       <a href="/account/indexManager" class="navbar-brand" >Home</a>
+    <a href="/manage/allfaculity" class="navbar-brand" >View contributions</a>
+    <a href="/manage/allcoursemanager" class="navbar-brand" >Dowload contributions</a>
+    <a href="/teacher" class="navbar-brand" >Set time for upload file managine</a>
+    <a href="" class="w3-bar-item w3-button">Logout</a>
+
+
+    CHart
+    <table class="table table-striped mt-4">
+    <thead>
+        <tr>
+            <th scope="col" style="font-size:20px;">Những đóng góp của sinh viên</th>
+        </tr>
+    </thead>
+    <th>Name</th>
+    <th>Email</th>
+    <th>đánh giá bài đăng</th>
+    {{#each data}}
+    
+    <tbody>
+        <tr>
+            <td>
+                <a href="/download/{{_id}}">{{nameFile}}</a>                
+            </td>
+            <td>                
+                <p>{{studentemail}}</p>
+            </td>
+            <td>
+                <a href="/manage/readcontribution{{_id}}">xem bài báo</a>
+            </td>
+        </tr>
+    </tbody>
+      {{/each}}
+    </table>
+
+</body>
+</html>

@@ -1,0 +1,12 @@
+<a href ="/account/indexGuest" class="navbar-brand" >Home</a>
+{{#each data}}
+    <form action="/course/dodanhgiabaibao{{_id}}" method="POST">
+    <tbody>
+        <tr>
+        <th>
+            <p>bạn có thể dowload file tại đây<a href="/download/{{_id}}"> {{nameFile}}</a></p>
+            <iframe src="/{{filePath}}" height="100%" width ="100%"></iframe>
+        </th>
+    </tbody>
+    </form>
+{{/each}}

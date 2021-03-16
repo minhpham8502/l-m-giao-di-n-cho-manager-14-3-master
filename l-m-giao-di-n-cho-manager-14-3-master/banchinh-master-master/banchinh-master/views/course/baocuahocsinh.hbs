@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+    {{!-- <form action="/file/upload" method="POST" enctype="multipart/form-data">
+      <input type="file" name="filePath" id="filePath" required><br>
+      <input type="submit" value="upload file">
+    </form> --}}
+    
+    <a href="/account/indexTeacher" class="w3-bar-item w3-button">Home</a>
+  <a href="/course/viewJava" class="w3-bar-item w3-button">View submissions</a>
+  
+  <a href="" class="w3-bar-item w3-button">Logout</a>
+
+        <table class="table table-striped mt-4">
+    <thead>
+        <tr>
+            <th scope="col" style="font-size:20px;">Những đóng góp của sinh viên</th>
+        </tr>
+    </thead>
+    <th>Name</th>
+    <th>File submited</th>
+ 
+    {{#each account}}
+    
+    <tbody>
+        <tr>
+            <td>
+                <a href="/download/{{_id}}">{{nameFile}}</a>
+                <p>{{email}}</p>
+                
+            </td>
+            <td>
+              
+                <a href="/course/allDocument/{{email}}"> View</a>
+
+            </td>
+        </tr>
+    </tbody>
+      {{/each}}
+
+    </table>
+
+</body>
+</html>

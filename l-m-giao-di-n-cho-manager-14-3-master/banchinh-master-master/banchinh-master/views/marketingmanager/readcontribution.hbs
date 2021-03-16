@@ -1,0 +1,16 @@
+    <a href="/account/indexManager" class="navbar-brand" >Home</a>
+    <a href="/manage/allfaculity" class="navbar-brand" >View contributions</a>
+    <a href="/manage/allcoursemanager" class="navbar-brand" >Dowload contributions</a>
+    <a href="/teacher/addTeacher" class="navbar-brand" >Set time for upload file managine</a>
+    <a href="" class="w3-bar-item w3-button">Logout</a>
+{{#each data}}
+    
+    <tbody>
+        <tr>
+        <th>
+            <p>bạn có thể dowload file tại đây<a href="/download/{{_id}}"> {{nameFile}}</a></p>
+            <iframe src="/{{filePath}}" height="100%" width ="100%"></iframe>
+        </th>
+    </tbody>
+
+{{/each}}

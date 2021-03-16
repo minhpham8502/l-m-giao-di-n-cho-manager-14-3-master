@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Download file</title>
+    </head>
+    <body>
+    <a href="/account/indexManager" class="navbar-brand" >Home</a>
+    <a href="/manage/allfaculity" class="navbar-brand" >View contributions</a>
+    <a href="/manage/allcoursemanager" class="navbar-brand" >Dowload contributions</a>
+    <a href="" class="navbar-brand" >Set time for upload file managine</a>
+    <a href="" class="w3-bar-item w3-button">Logout</a>
+        <form action ="/file/abc" method="post" name="">
+         <input type="hidden" name="hobby" value="."/>
+        {{#each data}}
+        <input type="text" value="{{slug}}" name = "slug"> 
+        <input type="checkbox" name="hobby" value="{{filePath}}"/> <label>{{nameFile}}</label> <br/>
+            <br/> <br/>
+        {{/each}} 
+        <input type="submit" id="btn" value="Download"/>
+        </form>
+    </body>
+</html>
