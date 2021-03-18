@@ -22,20 +22,9 @@ const AccountSchema = new Schema({
         type : String,
         default : ""
     },
-    fileSubmit:[{
-            filePath:String,
-        nameFile : String,
-        studentemail: String,
-        status: {
-            type : String,
-            default : "not rate"
-        },
-        comment: {
-            type : String,
-            default : ""
-        },
-        slug :String
-    }]   
+    friend:[{
+        email: String
+    }]
 },
 {
     collection: 'account'

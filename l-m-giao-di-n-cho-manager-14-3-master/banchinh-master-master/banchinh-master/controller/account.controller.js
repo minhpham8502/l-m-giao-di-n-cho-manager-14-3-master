@@ -94,6 +94,7 @@ let loginController = function(req,res){
         if(result){
             let token = jwt.sign({_id : req.user._id},'minh',{expiresIn :'1d'})
             res.cookie("token",token,{maxAge: 24*60*60*1000});
+            
             let user = req.user 
             res.cookie('email',user.email, { maxAge: 900000, httpOnly: true });
             res.cookie('id',user._id, { maxAge: 900000, httpOnly: true });
