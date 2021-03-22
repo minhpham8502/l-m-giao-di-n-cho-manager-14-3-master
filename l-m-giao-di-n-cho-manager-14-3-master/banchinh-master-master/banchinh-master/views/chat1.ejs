@@ -6,10 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/layout.css">
     <link rel="stylesheet" href="/css/course.css">
+    <link rel="stylesheet" type="text/css" href="/css/chat.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <%- include('header') -%>
+    <script>
+              var socket = io();
+              socket.emit("new_user_message", {
+                  cookiesemail: "<%=cookiesemail.email%>",
+                  user: "<%=user.email%>"
+              })
+    </script>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-    <%- include('header') -%>
-
     <script>
       $(document).ready(function(){
         $('.checkbtn').click(function(){
@@ -33,21 +43,19 @@
         <div class="layout1">
             <div class="menu">
                 <ul>
-                    <li><a href ="/account/indexGuest">Home</a></li>
+  <a href="/account/indexTeacher" class="w3-bar-item w3-button">Home</a>
+  <li>
                 </ul>
-
-
-            </div>
-            <div class="content">
-              <div class="col-md-6">
-                <div class="card " style="box-shadow: #7f7f7f; max-height: 450px;min-height: 450px;">
+        </div>
+        <div class="content">
+            <!-- <div class="col-md-6">  -->
+                <div class="card " style="box-shadow: #7f7f7f; margin: auto; width: 80%;
+                height: 80vh;">
                     <!--Header : infomation of user receive-->
-                    <div class="card-header">
+                    <div class="card-header" style=" width: 100%" >
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="d-flex justify-content-between align-items-center">
-                                <div class="mr-2">
-                                    <img class="rounded-circle" width="48" height="48"src="/public/image/avatar/<%=user.avatar%>" alt="">
-                                </div>
+                                
                                 <div class="ml-2">
                                     <!--  -->
                                     <div class="h7 text-muted"><%=user.email%></div>
@@ -88,9 +96,8 @@
                             <% } else{  %>
                             <li class="messages-you clearfix">
                                 <div class="message-body clearfix">
-                                    <div class="message-header" style="height: 39px;">
-                                        <a class="messages-title" href="/profile/<%=user.name%>"><img src="/public/image/avatar/<%=user.avatar%>" alt="User Avatar"
-                                            class="avatar-sm border rounded-circle" width="35" height="35"> <%=user.name%></a>  
+                                    <div class="" style="height: 39px; ">
+                                            <p class="" width="35" height="35" style="border: none" > <%=user.email%></p>  
                                     </div>                                     
                                 </div>
                                 <% if(mes.Mes!="") {  
@@ -110,7 +117,6 @@
                                   <% }
                                })
                             } %>
-                            <img src="/public/image/avatar/<%=user.avatar%>" alt="User Avatar" class="avatar-sm border rounded-circle" id="seen" width="12" height="12" style="float: right; display: none;">
                         </ul>
                         
                     </div>
@@ -136,14 +142,8 @@
                     </div>
                     <%- include('realtime_chat') -%>
                 </div>
-            </div>
-            <!--right screen, all image sended by 2 user-->
-            
+            </div>  
         </div>
-    </div>
-        </div>
-        </div>
-  </div>
     
     <div class="footer">
         <p>@University-2021</p>

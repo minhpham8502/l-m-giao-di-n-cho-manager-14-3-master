@@ -33,8 +33,6 @@ var guestRoutes = require('./routes/guest.route')
 var manageRoutes = require('./routes/manage.route')
 var messRoutes = require('./routes/mess.route')
 
-
-
 app.use('/guest', guestRoutes);
 app.use('/student', studentRoute);
 app.use('/teacher', teacherRoute);
@@ -44,17 +42,6 @@ app.use('/',indexrouter);
 app.use('/file',fileRouter)
 app.use('/manage',manageRoutes)
 app.use('/message', messRoutes);
-
-
-
-
-// var path = require('path');
-// var duongDanPublic = path.resolve(__dirname,'public')
-// app.use(express.static(duongDanPublic));
-// app.use(bodyParser.urlencoded({ extended: false }))
-// app.use(bodyParser.json())
-
-// app.use('/views', express.static(path.join(__dirname,'views')))
 
 
 app.get('/download/:id',(req,res)=>{
@@ -75,62 +62,10 @@ app.get('/download/:id',(req,res)=>{
 //tiến hành cài đặt cho chat box
 const http = require('http');
 const socketio = require('socket.io');
-// const formatMessage = require('./utils/messages');
-// const {
-//   userJoin,
-//   getCurrentUser,
-//   userLeave,
-//   getRoomUsers
-// } = require('./utils/users');
-// // var AccountRoute = require('./routers/account.route')
 
 const server = http.createServer(app);
 const io = socketio(server);
 
-// // Set static folder
-// // app.use(express.static(path.join(__dirname, 'public')));
-// // app.use('chat', AccountRoute);
-// const botName = 'ChatCord Bot';
-
-// // Run when client connects
-// io.on('connection', socket => {
-//   socket.on('joinRoom', ({ username, room }) => {
-//     const user = userJoin(socket.id, username, room);
-
-//     socket.join(user.room);
-
-//     // Send users and room info
-//     io.to(user.room).emit('roomUsers', {
-//       room: user.room,
-//       users: getRoomUsers(user.room)
-//     });
-//   });
-
-//   // Listen for chatMessage
-//   socket.on('chatMessage', msg => {
-//     const user = getCurrentUser(socket.id);
-
-//     io.to(user.room).emit('message', formatMessage(user.username, msg));
-//   });
-
-//   // Runs when client disconnects
-//   socket.on('disconnect', () => {
-//     const user = userLeave(socket.id);
-
-//     if (user) {
-//       io.to(user.room).emit(
-//         'message',
-//         // formatMessage(botName, `${user.username} has left the chat`)
-//       );
-
-//       // Send users and room info
-//       io.to(user.room).emit('roomUsers', {
-//         room: user.room,
-//         users: getRoomUsers(user.room)
-//       });
-//     }
-//   });
-// });
 //real-time in chat
 io.on("connection", (socket) => {
   socket.on("new_user_message", (data) => {
@@ -178,7 +113,7 @@ io.on("connection", (socket) => {
                   link:0
               });
           }
-          MongoClient.connect('mongodb+srv://minhpham852000:Quangminh2000@cluster0.46ara.mongodb.net/test', (err, db) => {
+          MongoClient.connect('mongodb://localhost/test', (err, db) => {
               let dbo = db.db("test");
               dbo.collection("chats").updateOne(query1, {
                   "$push": {
@@ -212,7 +147,7 @@ io.on("connection", (socket) => {
           var dot = data.file_name.indexOf(".");
           // var type = data.file_name.substr(length - 3, 3);
           var type=data.file_name.slice(dot+1,length);
-          MongoClient.connect('mongodb+srv://minhpham852000:Quangminh2000@cluster0.46ara.mongodb.net/test', (err, db) => {
+          MongoClient.connect('mongodb://localhost/test', (err, db) => {
               let dbo = db.db("test");
               dbo.collection("chats").updateOne(query1, {
                   "$push": {

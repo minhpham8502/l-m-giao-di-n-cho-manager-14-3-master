@@ -1,12 +1,17 @@
 var mongoose = require("mongoose");
 //const { stringify } = require("querystring");
 var MongoClient = require('mongodb').MongoClient;
-var url = "mongodb+srv://minhpham852000:Quangminh2000@cluster0.46ara.mongodb.net/test";
+// var url = "mongodb+srv://minhpham852000:Quangminh2000@cluster0.46ara.mongodb.net/test";
 
-mongoose.connect(url, {
+// mongoose.connect(url, {
+//     useNewUrlParser: true,
+//     useUnifiedTopology: true,
+//   });
+mongoose.connect('mongodb://localhost/test', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   });
+
 
 const Schema = mongoose.Schema;
 const DashboardSchema = new Schema({
